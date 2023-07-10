@@ -1,13 +1,14 @@
 package com.restful.app.rest.model;
 
-import jakarta.persistence.Id;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="user_table")
 public class User {
 	
 	@Id
@@ -25,6 +26,18 @@ public class User {
 	
 	@Column
 	private String occupation;
+	
+	public User() {
+		super();
+	}
+	
+	public User(long id, String firstName, String lastName, int age, String occupation) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.occupation = occupation;
+	}
 	
 	public long getId() {
 		return id;
